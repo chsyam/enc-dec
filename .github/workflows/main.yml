@@ -15,6 +15,8 @@ jobs:
         run: ls
       - name: Creating jar file
         run: ./gradlew clean build
+      - name: listing all files
+        run: ls
       - name: Building an image
         run: sudo docker build -t 10.63.20.34:80/enc-dec:latest . 
       - name: Pushing the image to registry
