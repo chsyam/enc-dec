@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enc-dec
+  namespace: s3
+  labels:
+    app: enc-dec
+spec:
+  selector:
+    matchLabels:
+      app: enc-dec
+  template:
+    metadata:
+      labels:
+        app: enc-dec
+    spec:
+      containers:
+      - name: enc-dec
+        image: 10.63.20.34:80/enc-dec:latest
+        ports:
+        - containerPort: 8001
+      imagePullSecrets:
+      - name: regcred
